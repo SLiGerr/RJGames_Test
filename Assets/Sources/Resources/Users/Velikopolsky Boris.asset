@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3be0f84b8efc44bba7e51b3ece4f7460, type: 3}
-  m_Name: User3
+  m_Name: Velikopolsky Boris
   m_EditorClassIdentifier: 
-  userIcon: {fileID: 21300000, guid: 5e5174dcb040c8e48b28b2a714250350, type: 3}
-  userName: PicaChu
+  userIcon: {fileID: 21300000, guid: 48319418b9f7890408dde546dfdb9eba, type: 3}
+  userName: Velikopolsky Boris

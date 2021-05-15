@@ -5,17 +5,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sources.Code.Massages
+namespace Sources.Code.Messages
 {
-    public class UIMassageInputField : MonoBehaviour
+    public class UIMessageInputField : MonoBehaviour
     {
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private RectTransform createRoot;
         [SerializeField] private Button sendButton;
 
-        [SerializeField] private GameObject 
-            activeUserMassagePrefab, 
-            otherUsersMassagePrefab;
+        [Header("(Null for random)")]
+        [SerializeField] private UserConfig nextUser;
+        
+        [Space]
+        [SerializeField] private GameObject activeUserMessagePrefab;
+        [SerializeField] private GameObject otherUsersMessagePrefab;
 
         private void Start()
         {
@@ -39,15 +42,15 @@ namespace Sources.Code.Massages
 
         private void CreateNewMassage(string text)
         {
-            var user = RoomUsers.RandomUser();
+            var user = nextUser == null ? RoomUsers.RandomUser() : nextUser.GetUser;
 
-            var massage = new Massage(DateTime.Now, user, new MassageTextContent(text));
+            var massage = new Message(DateTime.Now, user, new MessageTextContent(text));
             
             var isActiveUser = RoomUsers.ActiveUser.Equals(user);
-            var massageGo = Instantiate(isActiveUser ? activeUserMassagePrefab : otherUsersMassagePrefab, createRoot);
-            var uiMassage = massageGo.GetComponent<IUIMassage>();
+            var massageGo = Instantiate(isActiveUser ? activeUserMessagePrefab : otherUsersMessagePrefab, createRoot);
+            var uiMassage = massageGo.GetComponent<IUIMessage>();
             uiMassage.Initialize(massage);
-            UIChatAnimations.MassageAppear(uiMassage);
+            ChatAnimations.MessageAppear(uiMassage);
         }
 
         private bool CheckTextCanBeSend(string text)

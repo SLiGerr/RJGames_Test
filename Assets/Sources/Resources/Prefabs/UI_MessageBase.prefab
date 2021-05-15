@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 5050655486732371391}
   - component: {fileID: 1410018450620167221}
   m_Layer: 5
-  m_Name: MassageTextContent
+  m_Name: MessageTextContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 865.4192, y: 0}
+  m_AnchoredPosition: {x: 90, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2066262455085482600
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 6981374173664029720}
   - component: {fileID: 5120999668030692510}
   m_Layer: 5
-  m_Name: Massage
+  m_Name: UI_MessageBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -763,13 +763,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8116d83ebc999644a3c7f5ae8f61f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userLogo: {fileID: 9088439679974332730}
+  userLogo: {fileID: 5583650383778944782}
   nameText: {fileID: 9088439678750033492}
   contentText: {fileID: 9088439678691856092}
   dateText: {fileID: 17794546110777626}
-  massageImage: {fileID: 5050655486732371391}
-  rootImage: {fileID: 21300000, guid: 1e5d9335c0856cd4895172175d55966f, type: 3}
-  nestedImage: {fileID: 21300000, guid: f3dedc343a9b1bb429bac1e52573b222, type: 3}
+  messageImage: {fileID: 5050655486732371391}
+  rootImage: {fileID: 21300000, guid: 58ae61390ea9bd447b15d83eca889c8f, type: 3}
+  nestedImage: {fileID: 21300000, guid: 4d215ce69cef9e54cb1ffa746f91be3d, type: 3}
+  messageTextContent: {fileID: 3966860003650149198}
+  messageBodyContent: {fileID: 6981374173664029720}
+  layoutCorrections:
+    textContentNested:
+      m_Left: 25
+      m_Right: 25
+      m_Top: 25
+      m_Bottom: 25
+    textContentRoot:
+      m_Left: 80
+      m_Right: 25
+      m_Top: 25
+      m_Bottom: 25
+    messageBodyNested:
+      m_Left: 295
+      m_Right: 250
+      m_Top: 12
+      m_Bottom: 12
+    messageBodyRoot:
+      m_Left: 250
+      m_Right: 250
+      m_Top: 12
+      m_Bottom: 12
 --- !u!1 &9088439679974332728
 GameObject:
   m_ObjectHideFlags: 0

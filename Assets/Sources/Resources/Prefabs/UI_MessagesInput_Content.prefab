@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3478301477406497533}
+  - component: {fileID: 5731493475197491164}
   m_Layer: 5
   m_Name: UI_MassagesInput_Content
   m_TagString: Untagged
@@ -37,6 +38,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5731493475197491164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3478301477406497532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e34821085db1b42999927296d3c04c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteModeButton: {fileID: 1324319519970697380}
+  completeDeleteButton: {fileID: 0}
+  inputTextGroup: {fileID: 3624468753122426009}
+  completeDeleteGroup: {fileID: 0}
+  massagesContent: {fileID: 0}
 --- !u!1 &3478301478152898204
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,3 +259,21 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7370728520380512201}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &3624468753122426009 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 6054708894989781840, guid: 20e91723317e25c4aabb4a0ed9f8fb0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7370728520380512201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1324319519970697380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8370778970767415149, guid: 20e91723317e25c4aabb4a0ed9f8fb0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7370728520380512201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

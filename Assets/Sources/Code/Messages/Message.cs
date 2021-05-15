@@ -1,15 +1,15 @@
 ﻿using System;
 using Sources.Code.Users;
 
-namespace Sources.Code.Massages
+namespace Sources.Code.Messages
 {
-    public class Massage
+    public class Message
     {
         public IUser Author { get; }
-        public IMassageContent Content { get; }
+        public IMessageContent Content { get; }
         public DateTime SendedDate { get; }
         
-        public Massage(DateTime sendedDate, IUser author, IMassageContent content)
+        public Message(DateTime sendedDate, IUser author, IMessageContent content)
         {
             SendedDate = sendedDate;
             Author = author;
