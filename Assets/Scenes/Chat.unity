@@ -900,6 +900,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5332885355091985878, guid: f2e2328da03dbb348a3687f5bca28b0e,
         type: 3}
+    - target: {fileID: 3329892113595261756, guid: 0f56b0d92c8c3ef41b62b2cd3d8ac469,
+        type: 3}
+      propertyPath: nextUser
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3387186548046158867, guid: 0f56b0d92c8c3ef41b62b2cd3d8ac469,
         type: 3}
       propertyPath: massagesContent
