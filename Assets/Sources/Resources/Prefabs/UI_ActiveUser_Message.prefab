@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 100, y: 75}
-  m_SizeDelta: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 75, y: 65}
+  m_SizeDelta: {x: 0, y: 125}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &7116984878167877345
 MonoBehaviour:
@@ -90,10 +90,10 @@ RectTransform:
   m_Father: {fileID: 5188792495681051314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 125, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1578946653678598787
 CanvasRenderer:
@@ -500,6 +500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI_ActiveUser_Message
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088439679974332730, guid: e9e0e5c1ced67dc41b77f8423be22013,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5120999668030692510, guid: e9e0e5c1ced67dc41b77f8423be22013, type: 3}

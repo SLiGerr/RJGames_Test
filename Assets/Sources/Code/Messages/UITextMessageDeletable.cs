@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Sources.Code.Chat;
+﻿using Sources.Code.Chat;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +15,7 @@ namespace Sources.Code.Messages
 
         private void OnDeleteButton()
         {
-            MessagesVisualSetup.DisposeMessage(this);
+            MessagesAdjuster.DisposeMessage(this);
         }
     }
 }

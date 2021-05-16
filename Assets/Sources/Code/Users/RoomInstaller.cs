@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sources.Code.Messages;
 using UnityEngine;
 
 namespace Sources.Code.Users
@@ -12,6 +13,9 @@ namespace Sources.Code.Users
         {
             RoomUsers.UserList = GetUserList();
             RoomUsers.ActiveUser = activeUser.GetUser;
+
+            MessageCreator.MessageFactory = new MessageFactory();
+            MessageCreator.UIMessageFactory = new UIMessageFactory();
         }
 
         private List<IUser> GetUserList()

@@ -1,32 +1,47 @@
-﻿using Sources.Code.Messages;
+﻿using System;
+using Sources.Code.Messages;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Sources.Code.Chat
 {
     public static class ChatAnimations
     {
-        
-        public static void MessageAppear(IUIMessage massage)
+        public static void MessageAppear(IUIMessage message)
         {
-            massage.UIRootGameObject.transform.localScale = new Vector3(1, 0);
-            massage.UIMassageGo.transform.localScale = new Vector3(0, 0);
-            massage.UIRootGameObject.LeanScale(Vector3.one, 0.1f).setEaseOutCirc().setOnComplete(() =>
-            {
-                massage.UIMassageGo.LeanScale(Vector3.one, 0.2f).setEaseOutCirc();
-            });
+            var logoTime = ConfigLoader.GetConfig().messageSpawnAppearLogoTime;
+            var messageTime = ConfigLoader.GetConfig().messageSpawnAppearMessageTime;
             
-            MessagesVisualSetup.OnMessageAppeared(massage);
+            message.UIRootGameObject.transform.localScale = new Vector3(1, 0);
+            message.UIMassageGo.transform.localScale = new Vector3(0, 0);
+            
+            message.UIRootGameObject.LeanScale(Vector3.one, logoTime).setEaseOutCirc().setOnComplete(() =>
+            {
+                message.UIMassageGo.LeanScale(Vector3.one, messageTime).setEaseOutCirc();
+            });
+        }
+
+        public static void MessageDisappear(IUIMessage message, Action endAction)
+        {
+            var messageTime = ConfigLoader.GetConfig().messageDisposeTime;
+            message.UIMassageGo.LeanScale(Vector3.zero, messageTime).setEaseOutCirc().setOnComplete(endAction);
         }
 
         public static void MoveChatLeft(RectTransform chatContent)
         {
-            chatContent.LeanMoveX(-200, .2f).setEaseInOutCirc();
+            var config = ConfigLoader.GetConfig();
+            var moveTo = config.deleteModeChatX;
+            var withTime = config.deleteModeSwitchTime;
+            
+            chatContent.LeanMoveX(moveTo, withTime).setEaseInOutCirc();
         }
 
         public static void MoveChatToCenter(RectTransform chatContent)
         {
-            chatContent.LeanMoveX(0, 0.2f).setEaseInOutCirc();
+            var config = ConfigLoader.GetConfig();
+            var moveTo = config.regularModeChatX;
+            var withTime = config.deleteModeSwitchTime;
+            
+            chatContent.LeanMoveX(moveTo, withTime).setEaseInOutCirc();
         }
 
         public static void SwapPairOfGroups(CanvasGroup from, CanvasGroup to)
@@ -36,10 +51,12 @@ namespace Sources.Code.Chat
         }
         
         public static void FadeGroupOut(this CanvasGroup group) =>
-            group.LeanAlpha(0, 0.2f).setEaseInOutCirc().setOnStart(() => group.SetInteractivity(false));
+            group.LeanAlpha(0, FadeTime()).setEaseInOutCirc().setOnStart(() => group.SetInteractivity(false));
         public static void FadeGroupIn(this CanvasGroup group) => 
-            group.LeanAlpha(1, 0.2f).setEaseInOutCirc().setOnStart(() => group.SetInteractivity(true));
+            group.LeanAlpha(1, FadeTime()).setEaseInOutCirc().setOnStart(() => group.SetInteractivity(true));
 
+        private static float FadeTime() => ConfigLoader.GetConfig().fadeSwitchGroupsTime;
+        
         public static void SetInteractivity(this CanvasGroup group, bool to)
         {
             group.blocksRaycasts = to;

@@ -8,9 +8,7 @@ namespace Sources.Code.Delete
     {
         [SerializeField] private Button deleteModeButton;
         [SerializeField] private Button completeDeleteButton;
-
         [SerializeField] private CanvasGroup inputTextGroup, completeDeleteGroup;
-
         [SerializeField] private RectTransform messagesContent;
 
         private void Start()

@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 5822738742542333135}
   - component: {fileID: 3329892113595261756}
   m_Layer: 5
-  m_Name: UI_MassageInput
+  m_Name: UI_MessageInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,10 +128,8 @@ MonoBehaviour:
   createRoot: {fileID: 0}
   sendButton: {fileID: 881186577730333009}
   nextUser: {fileID: 11400000, guid: 7135b2d59114b2345b0055fce5fccbf4, type: 2}
-  activeUserMassagePrefab: {fileID: 1905185705160209582, guid: 85e46982b12e6da4bacac7f72ffcf2b6,
-    type: 3}
-  otherUsersMassagePrefab: {fileID: 5332885355091985878, guid: f2e2328da03dbb348a3687f5bca28b0e,
-    type: 3}
+  activeUserMessagePrefab: {fileID: 0}
+  otherUsersMessagePrefab: {fileID: 0}
 --- !u!1001 &3468480435055701756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,11 +292,6 @@ PrefabInstance:
     - target: {fileID: 3478301476618347168, guid: 809896cbcaa39ca49aa20ddd5781704a,
         type: 3}
       propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3478301477267481747, guid: 809896cbcaa39ca49aa20ddd5781704a,
-        type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3478301477406497532, guid: 809896cbcaa39ca49aa20ddd5781704a,

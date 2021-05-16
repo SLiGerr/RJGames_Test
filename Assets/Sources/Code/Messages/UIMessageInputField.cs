@@ -1,6 +1,4 @@
-﻿using System;
-using Sources.Code.Chat;
-using Sources.Code.Users;
+﻿using Sources.Code.Users;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,14 +10,10 @@ namespace Sources.Code.Messages
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private RectTransform createRoot;
         [SerializeField] private Button sendButton;
-
+        
         [Header("(Null for random)")]
         [SerializeField] private UserConfig nextUser;
         
-        [Space]
-        [SerializeField] private GameObject activeUserMessagePrefab;
-        [SerializeField] private GameObject otherUsersMessagePrefab;
-
         private void Start()
         {
             inputField.onSubmit.AddListener(InputSubmitted);
@@ -34,30 +28,23 @@ namespace Sources.Code.Messages
         private void InputSubmitted(string text)
         {
             if (!CheckTextCanBeSend(text)) return;
-            
             inputField.text = null;
-            CreateNewMassage(text);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(createRoot);
+            
+            //Possible checks for multiple types of massages including images or video contents
+            CreateNewTextMassage(text);
         }
 
-        private void CreateNewMassage(string text)
+        private void CreateNewTextMassage(string text)
         {
             var user = nextUser == null ? RoomUsers.RandomUser() : nextUser.GetUser;
-
-            var massage = new Message(DateTime.Now, user, new MessageTextContent(text));
-            
-            var isActiveUser = RoomUsers.ActiveUser.Equals(user);
-            var massageGo = Instantiate(isActiveUser ? activeUserMessagePrefab : otherUsersMessagePrefab, createRoot);
-            var uiMassage = massageGo.GetComponent<IUIMessage>();
-            uiMassage.Initialize(massage);
-            ChatAnimations.MessageAppear(uiMassage);
+            var message = MessageCreator.MessageFactory.PopulateNewTextMessage(text, user);
+            MessageCreator.UIMessageFactory.InstantiateMessage(message, createRoot);
         }
 
         private bool CheckTextCanBeSend(string text)
         {
-            //There is can be any type of checks, like "Only spaces"
-            
             if (text.Length == 0) return false;
+            //There is can be any type of checks, like "Only spaces"
             return true;
         }
     }

@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Sources.Code.Messages;
-using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Sources.Code.Chat
 {
-    public static class MessagesVisualSetup
+    public static class MessagesAdjuster
     {
         private static List<IUIMessage> _allMessages = new List<IUIMessage>();
+
+        public static Action OnAdjust;
 
         public static void OnMessageAppeared(IUIMessage massage)
         {
             _allMessages.Add(massage);
-
             UpdateMessagesStyle();
         }
 
@@ -19,9 +21,12 @@ namespace Sources.Code.Chat
         {
             if(_allMessages.Contains(message))
                 _allMessages.Remove(message);
-            Object.Destroy(message.UIRootGameObject);
             
-            UpdateMessagesStyle();
+            ChatAnimations.MessageDisappear(message, () =>
+            {
+                Object.Destroy(message.UIRootGameObject);
+                UpdateMessagesStyle();
+            });
         }
 
         public static void UpdateMessagesStyle()
@@ -46,6 +51,8 @@ namespace Sources.Code.Chat
                 currentMessage.SetNameVisibility(typeToSet == UIMessageImageType.Root);
                 currentMessage.SetImageType(typeToSet);
             }
+            
+            OnAdjust?.Invoke();
         }
     }
 }

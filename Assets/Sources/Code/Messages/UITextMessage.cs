@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Code.Chat;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,10 @@ namespace Sources.Code.Messages
 {
     public class UITextMessage : MonoBehaviour, IUIMessage
     {
+        public Message MessageData { get; set; }
+        public GameObject UIRootGameObject { get; set; }
+        public GameObject UIMassageGo { get; set; }
+        
         [SerializeField] private Image userLogo;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI contentText;
@@ -20,11 +25,6 @@ namespace Sources.Code.Messages
         [SerializeField] private VerticalLayoutGroup messageBodyContent;
 
         [SerializeField] private StyleLayoutCorrections layoutCorrections;
-
-        public Message MessageData { get; set; }
-        public GameObject UIRootGameObject { get; set; }
-        public GameObject UIMassageGo { get; set; }
-
 
         public void Initialize(Message message)
         {
@@ -45,11 +45,10 @@ namespace Sources.Code.Messages
 
         protected virtual void OnInitialize(Message message) { }
 
-
         public void SetNameVisibility(bool to)
         {
-            nameText.gameObject?.SetActive(to);
-            userLogo.gameObject?.SetActive(to);
+            nameText.gameObject.SetActive(to);
+            userLogo.gameObject.SetActive(to);
         }
 
         public void SetImageType(UIMessageImageType to)
@@ -65,26 +64,6 @@ namespace Sources.Code.Messages
                     layoutCorrections.SetLayoutNested(messageTextContent, messageBodyContent);
                     break;
             }
-        }
-    }
-    
-        
-    [Serializable]
-    public class StyleLayoutCorrections
-    {
-        public RectOffset textContentNested;
-        public RectOffset textContentRoot;
-        public RectOffset messageBodyNested;
-        public RectOffset messageBodyRoot;
-        public void SetLayoutNested(VerticalLayoutGroup textContent, VerticalLayoutGroup messageBody)
-        {
-            textContent.padding = textContentNested;
-            messageBody.padding = messageBodyNested;
-        }
-        public void SetLayoutRoot(VerticalLayoutGroup textContent, VerticalLayoutGroup messageBody)
-        {
-            textContent.padding = textContentRoot;
-            messageBody.padding = messageBodyRoot;
         }
     }
 }

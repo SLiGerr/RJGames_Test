@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3478301477406497533}
   - component: {fileID: 5731493475197491164}
   m_Layer: 5
-  m_Name: UI_MassagesInput_Content
+  m_Name: UI_MessagesInput_Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   completeDeleteButton: {fileID: 0}
   inputTextGroup: {fileID: 3624468753122426009}
   completeDeleteGroup: {fileID: 0}
-  massagesContent: {fileID: 0}
+  messagesContent: {fileID: 0}
 --- !u!1 &3478301478152898204
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,11 +245,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201314069801096026, guid: 20e91723317e25c4aabb4a0ed9f8fb0c,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20e91723317e25c4aabb4a0ed9f8fb0c, type: 3}
