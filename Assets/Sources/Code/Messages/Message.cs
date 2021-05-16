@@ -7,11 +7,11 @@ namespace Sources.Code.Messages
     {
         public IUser Author { get; }
         public IMessageContent Content { get; }
-        public DateTime SendedDate { get; }
+        public DateTime SentDate { get; }
         
-        public Message(DateTime sendedDate, IUser author, IMessageContent content)
+        public Message(DateTime sentDate, IUser author, IMessageContent content)
         {
-            SendedDate = sendedDate;
+            SentDate = sentDate;
             Author = author;
             Content = content;
         }

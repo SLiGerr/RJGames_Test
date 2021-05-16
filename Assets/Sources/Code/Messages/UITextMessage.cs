@@ -1,5 +1,4 @@
 ﻿using System;
-using Sources.Code.Chat;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,8 +38,8 @@ namespace Sources.Code.Messages
             nameText.SetText(MessageData.Author.UserName);
             userLogo.sprite = MessageData.Author.UserAvatar;
             contentText.SetText(MessageData.Content.Content as string);
-            var dayPassed = DateTime.Now > MessageData.SendedDate.AddDays(1);
-            dateText.SetText(MessageData.SendedDate.ToString(dayPassed ? "M/d/yy" : "HH:mm"));
+            var dayPassed = DateTime.Now > MessageData.SentDate.AddDays(1);
+            dateText.SetText(MessageData.SentDate.ToString(dayPassed ? "M/d/yy" : "HH:mm"));
         }
 
         protected virtual void OnInitialize(Message message) { }

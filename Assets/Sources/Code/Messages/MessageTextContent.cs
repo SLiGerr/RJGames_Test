@@ -1,6 +1,6 @@
 ﻿namespace Sources.Code.Messages
 {
-    class MessageTextContent : IMessageContent
+    public class MessageTextContent : IMessageContent
     {
         public object Content { get; set; }
 

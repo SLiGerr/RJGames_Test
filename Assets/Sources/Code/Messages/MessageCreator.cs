@@ -1,6 +1,4 @@
-﻿using Sources.Code.Messages;
-
-namespace Sources.Code.Users
+﻿namespace Sources.Code.Messages
 {
     public static class MessageCreator
     {
